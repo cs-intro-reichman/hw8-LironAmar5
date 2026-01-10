@@ -54,19 +54,13 @@
     /** Makes this user follow the given name. If successful, returns true. 
      *  If this user already follows the given name, or if the follows list is full, does nothing and returns false; */
     public boolean addFollowee(String name) {
-        if(this.follows(name))
-            {
-                return false;
-            }
-        else if(fCount == maxfCount)
-            {
-                return false;
-            }
-        else 
-            {
-                follows[fCount++] = name;
-                return true;
-            }
+        if (name == null) return false;
+        if (this.follows(name)) return false;
+        if (fCount == maxfCount) return false;
+
+        follows[fCount++] = name;
+        return true;
+        
         
     }
 
@@ -81,6 +75,7 @@
                         {
                             follows[i] = null;
                             fCount--;
+                            return true;
                         }
                     else
                         {
@@ -117,10 +112,10 @@
                 {
                     count ++;
                 }
-            return count;    
+               
         }
 
-        return 0;
+        return count;
     }
 
     /** Checks is this user is a friend of the other user.
