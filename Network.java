@@ -30,6 +30,7 @@ public class Network {
      *  If there is no such user, returns null.
      *  Notice that the method receives a String, and returns a User object. */
     public User getUser(String name) {
+        if(name == null){ return null;}
         for (int i = 0; i < userCount; i++) {
             if(users[i].getName().equals(name))
                 {
@@ -130,7 +131,7 @@ public class Network {
 
         }
 
-        return best.getName();
+        return (best == null) ? null : best.getName();
     }
     
     /** Returns the number of times that the given name appears in the follows lists of all
@@ -155,7 +156,7 @@ public class Network {
        String ans = "Network:";
        
        for (int i = 0; i < userCount; i++) {
-           ans = ans + "\n" + users[i].toString() + " ";
+           ans = ans + "\n" + users[i].toString();
        }
        return ans;
     }
