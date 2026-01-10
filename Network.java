@@ -155,7 +155,7 @@ public class Network {
        String ans = "Network:";
        
        for (int i = 0; i < userCount; i++) {
-           ans = "\n"+ ans + users[i].toString() + " ";
+           ans = ans + "\n" + users[i].toString() + " ";
        }
        return ans;
     }
